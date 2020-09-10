@@ -14,7 +14,7 @@
             <% for(let i = 0; i < posts.length; i++) {%>
                 <div>
                     <h1><%=posts[i].title%></h1>
-                    <p><%=posts[i].content.substring(0,100)%>...<a href="/posts/<%=posts[i].title%>">See More</a></p>
+                    <p><%=posts[i].content.substring(0,100)%>...<a href="/posts/<%=posts[i]._id%>">See More</a></p>
                 </div>
             <%}%>
         <%}%>

@@ -65,12 +65,12 @@ app.get("/compose", function(req, res) {
 })
 
 app.get("/posts/:new", function(req,res) {
-    const title = _.lowerCase(req.params.new);
-    Post.findOne({title: title}, function(err, singlePost) {
+    const id = req.params.new;
+    Post.findOne({_id: id}, function(err, singlePost) {
         if(err) {
             console.log(err)
         }else {
-            res.render("post", {postAuthor: singlePost.author, postTitle: singlePost.title, postContent: singlePost.content, postId: singlePost['_id']})
+            res.render("post", {postAuthor: singlePost.author, postTitle: _.capitalize(singlePost.title), postContent: singlePost.content, postId: singlePost['_id']})
         }
     })
     
@@ -89,7 +89,7 @@ app.post("/delete", function(req,res) {
 })
 app.post("/compose", function(req, res) {
     let postAuthor = req.body.postAuthor
-    let postTitle = req.body.postTitle;
+    let postTitle = _.capitalize(req.body.postTitle);
     let postContent = req.body.postContent
     let post = {
         author: postAuthor,
