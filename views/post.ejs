@@ -1,0 +1,15 @@
+<%- include("partials/header") -%>
+    <div class="container">
+        <h1><%=postTitle%></h1>
+        <p>by <%=postAuthor%></p>
+
+        <p><%=postContent%></p>
+         
+        <form action="/delete" method="post" class="mt-5">
+            <input name="wisdom" class="d-none" value="<%=postId%>">
+            <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+        </form>
+        
+    </div>
+
+<%- include("partials/footer") -%>

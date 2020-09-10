@@ -1,0 +1,25 @@
+<%- include("./partials/header") -%>
+    <div class="container">
+        <h1>Welcome to my example blog.</h1>
+        <p>This blog was made with Node.js, Express.js, Ejs templating engine, MongoDb and bootstrap</p>
+        <p>Its not fancy yet. lol i know...</p>
+        <p>Click on the Compose button at the top to add a new post</p>
+    
+    </div>
+    <h2 class="text-center">Check out some of the posts</h2>
+    <div class="container">
+        <% if(posts.length === 0) {%>
+            <div>No Posts found</div>
+        <%}else{%>
+            <% for(let i = 0; i < posts.length; i++) {%>
+                <div>
+                    <h1><%=posts[i].title%></h1>
+                    <p><%=posts[i].content.substring(0,100)%>...<a href="/posts/<%=posts[i].title%>">See More</a></p>
+                </div>
+            <%}%>
+        <%}%>
+        
+        
+    </div>
+
+<%- include("./partials/footer") -%>
